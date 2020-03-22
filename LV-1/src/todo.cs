@@ -15,8 +15,12 @@ namespace ToDo
             items.Remove(item);
         }
 
+        public TodoItem GetItem(int index) {
+            return items[index];
+        }
+
         public List<TodoItem> GetCompletedItems() {
-            return items.Where( item => item.isDone == true ).ToList();
+            return items.Where( item => item.isComplete == true ).ToList();
         }
 
         public List<TodoItem> GetItemsWithPriorityOrHigher (int priority) {
@@ -31,15 +35,23 @@ namespace ToDo
 
     public class TodoItem {
         public int priority { set; get; }
-        public bool isDone = false;
+        public bool isComplete = false;
         public String description { set; get; }
 
+        public String GetCompletedStatus() {
+            if (isComplete) {
+                return "✅";
+            } else {
+                return "❌";
+            }
+
+        }
         public TodoItem Complete() {
-            this.isDone = true;
+            this.isComplete = true;
             return this;
         }
         public override String ToString() {
-            return $"{priority} : {description}";
+            return $"{priority}, {GetCompletedStatus()} : {description}";
         }
     }
 
