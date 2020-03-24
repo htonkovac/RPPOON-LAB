@@ -40,8 +40,7 @@ namespace ToDo
 
         public int priority { set; get; }
         public bool isComplete = false;
-        public String description { set; get; }
-        public String author { get; }
+
 
         public String GetCompletedStatus() {
             if (isComplete) {
@@ -49,7 +48,6 @@ namespace ToDo
             } else {
                 return "❌";
             }
-
         }
         public Note Complete() {
             this.isComplete = true;

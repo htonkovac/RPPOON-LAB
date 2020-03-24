@@ -8,6 +8,8 @@ namespace LV1 {
         private int priority;
         private String description;
         private String author;
+        public bool isComplete = false;
+
 
         public int Priority { 
             get { return priority; }
@@ -18,6 +20,20 @@ namespace LV1 {
             set { this.description = value; }
         }
         public String Author { get { return author; } }
+        public bool IsComplete { 
+            get { return isComplete; }
+            set { this.isComplete = value; } }
+        public String GetCompletedStatus() {
+            if (isComplete) {
+                return "✅";
+            } else {
+                return "❌";
+            }
+        }
+        public Note Complete() {
+            this.isComplete = true;
+            return this;
+        }
 
         public Note() {
             this.priority = Note.PRIORITY_LOW;
@@ -25,7 +41,7 @@ namespace LV1 {
             this.author = "Unknown";
         }
         public Note(String description, String author, int priority) {
-            this.priority = Note.PRIORITY_LOW;
+            this.priority = priority;
             this.description = description;
             this.author = author;
         }
@@ -36,7 +52,7 @@ namespace LV1 {
         }
 
         public override String ToString() {
-            return $"{this.priority} : {author} : {this.description}";
+            return $"{this.priority} : {this.GetCompletedStatus()} : {author} : {this.description}";
         }
     }
 }

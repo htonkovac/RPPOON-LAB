@@ -24,7 +24,7 @@ public class Note {
             this.author = "Unknown";
         }
         public Note(String description, String author, int priority) {
-            this.priority = Note.PRIORITY_LOW;
+            this.priority = priority;
             this.description = description;
             this.author = author;
         }

@@ -1,16 +1,47 @@
 
 using System;
 using LV1;
+using System.Collections.Generic;
 
 class MainClass {
     static void Main() {
-        TimeStamped n1 = new TimeStamped();
-        TimeStamped n2 = new TimeStamped("New TimeStamped", "Mark", 1);
-        TimeStamped n3 = new TimeStamped(n2);
+        TodoListConsoleOutputer outputer = new TodoListConsoleOutputer();
+        TodoList list = new TodoList();
 
-        System.Console.WriteLine(n1);
-        System.Console.WriteLine(n2);
-        System.Console.WriteLine(n3);
 
+        System.Console.WriteLine("Input Todo items and priorities");
+        while (true) {
+            System.Console.WriteLine("\nInput Note description or empty line to end:");
+            
+            String description = System.Console.ReadLine();
+            if (description == "") {
+                break;
+            }
+
+            System.Console.WriteLine("Input Note priority (1 = HIGHEST)");
+            int priority = int.Parse(System.Console.ReadLine());
+            Note item = new Note(description,"Console",priority);
+  
+
+            list.AddItem(item);
+
+        }
+
+        OutputSeparationLine();
+
+        outputer.OutputAllItems(list);
+        OutputSeparationLine();
+
+        List<Note> highPriorityItems = list.GetItemsWithPriorityOrHigher(1);
+        foreach ( Note item in highPriorityItems) {
+                item.Complete();
+        }
+        outputer.OutputAllItems(list);
+        OutputSeparationLine();
+
+    }
+
+    static void OutputSeparationLine() {
+        System.Console.WriteLine("----------------------");
     }
 }

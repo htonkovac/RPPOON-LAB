@@ -37,7 +37,7 @@ namespace LV1
 
 
         public override String ToString() {
-            return $"{this.Priority} : {this.Author} {this.Time} : {this.Description}";
+            return $"{this.Priority} : {this.GetCompletedStatus()}: {this.Author} : {this.Time} : {this.Description}";
         }
     }
 }
