@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 
 namespace Dice {
-    class DiceRoller {
+    class DiceRoller : ILogable {
         private List<Die> dice;
         private List<int> resultForEachRoll;
         public ILogger logger { get; set; }
@@ -33,14 +33,14 @@ namespace Dice {
             );
         }
 
-        public void LogRollingResults() {
-            string stringRepresentation = "";
+        public string GetStringRepresentation() {
+            string representation = "";
             foreach (int rollResult in this.resultForEachRoll) {
-                stringRepresentation += rollResult + " ";
+                representation += rollResult + " ";
             }
-            this.logger.Log(stringRepresentation);
-            
+            return representation;
         }
+
 
         public int DiceCount
         {
