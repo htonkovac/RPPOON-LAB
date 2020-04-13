@@ -22,7 +22,4 @@ class MainClass {
         fileLogger.Log(roller);
     }
 
-    static void OutputSeparationLine() {
-        System.Console.WriteLine("----------------------");
-    }
 }

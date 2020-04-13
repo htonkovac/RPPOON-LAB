@@ -21,7 +21,4 @@ class MainClass {
         }
     }
 
-    static void OutputSeparationLine() {
-        System.Console.WriteLine("----------------------");
-    }
 }
