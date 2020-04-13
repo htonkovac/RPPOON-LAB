@@ -1,36 +1,28 @@
 using System.Collections.Generic;
 using System;
 
-namespace Dice {
-    class DiceRoller : ILogable {
+namespace Dice
+{
+    class ClosedDiceRoller : IDiceRoller, ILogable
+    {
         private List<Die> dice;
         private List<int> resultForEachRoll;
-        public ILogger logger { get; set; }
-
-        public DiceRoller()
+        public ClosedDiceRoller(int diceCount, int numberOfSides)
         {
             this.dice = new List<Die>();
+            for (int i = 0; i < diceCount; i++)
+            {
+                this.dice.Add(new Die(numberOfSides));
+            }
             this.resultForEachRoll = new List<int>();
         }
-        public void InsertDie(Die die)
+        public void RollAllDice()
         {
-            dice.Add(die);
-        }
-        public void RollAllDice() {
-            //clear results of previous rolling
             this.resultForEachRoll.Clear();
             foreach (Die die in dice)
             {
                 this.resultForEachRoll.Add(die.Roll());
             }
-        }
-
-         //View of the results
-        public IList<int> GetRollingResults()
-        {
-            return new System.Collections.ObjectModel.ReadOnlyCollection<int>(
-                this.resultForEachRoll
-            );
         }
 
         public string GetStringRepresentation() {
@@ -41,10 +33,5 @@ namespace Dice {
             return representation;
         }
 
-
-        public int DiceCount
-        {
-            get { return dice.Count; }
-        }
     }
 }
