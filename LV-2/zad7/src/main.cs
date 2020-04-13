@@ -16,17 +16,14 @@ class MainClass {
         FlexibleDiceRoller flexibleRoller = new FlexibleDiceRoller();
         for (int i =0; i < NUMBER_OF_DICE; i++) {
             flexibleRoller.InsertDie(new Die(6));
+            flexibleRoller.InsertDie(new Die(5));
         }
+        flexibleRoller.RollAllDice();
+        consoleLogger.Log(flexibleRoller);
+        flexibleRoller.RemoveDiceWithNSides(5);
         flexibleRoller.RollAllDice();
 
         consoleLogger.Log(flexibleRoller);
-
-        ClosedDiceRoller closedRoller = new ClosedDiceRoller(6,6);
-        closedRoller.RollAllDice();
-        fileLogger.Log(closedRoller);
     }
 
-    static void OutputSeparationLine() {
-        System.Console.WriteLine("----------------------");
-    }
 }

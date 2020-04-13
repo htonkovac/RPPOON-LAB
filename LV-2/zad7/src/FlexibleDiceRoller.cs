@@ -39,5 +39,8 @@ namespace Dice
             return representation;
         }
 
+        public void RemoveDiceWithNSides(int numberOfSides) {
+            dice.RemoveAll(die => die.numberOfSides == numberOfSides);
+        }
     }
 }

@@ -2,7 +2,7 @@ namespace Dice
 {
     class Die
     {
-        private int numberOfSides;
+        public int numberOfSides { get; private set;}
         private RandomGenerator randomGenerator;
         public Die(int numberOfSides)
         {
