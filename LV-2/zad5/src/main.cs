@@ -9,17 +9,17 @@ Izmijeniti klasu Die tako da koristi generator pseudo-slučajnih brojeva iz pre
 class MainClass {
     static void Main() {
         int NUMBER_OF_DICE = 20;
-        DiceRoller dr = new DiceRoller();
+        DiceRoller roller = new DiceRoller();
         ConsoleLogger consoleLogger = new ConsoleLogger();
         FileLogger fileLogger = new FileLogger(System.IO.Directory.GetCurrentDirectory() + "/log-result.txt");
 
         for (int i =0; i < NUMBER_OF_DICE; i++) {
-            dr.InsertDie(new Die(6));
+            roller.InsertDie(new Die(6));
         }
-        dr.RollAllDice();
+        roller.RollAllDice();
 
-        consoleLogger.Log(dr);
-        fileLogger.Log(dr);
+        consoleLogger.Log(roller);
+        fileLogger.Log(roller);
     }
 
     static void OutputSeparationLine() {

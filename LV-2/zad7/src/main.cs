@@ -13,17 +13,17 @@ class MainClass {
         FileLogger fileLogger = new FileLogger(System.IO.Directory.GetCurrentDirectory() + "/log-result.txt");
         
         
-        FlexibleDiceRoller fdr = new FlexibleDiceRoller();
+        FlexibleDiceRoller flexibleRoller = new FlexibleDiceRoller();
         for (int i =0; i < NUMBER_OF_DICE; i++) {
-            fdr.InsertDie(new Die(6));
+            flexibleRoller.InsertDie(new Die(6));
         }
-        fdr.RollAllDice();
+        flexibleRoller.RollAllDice();
 
-        consoleLogger.Log(fdr);
+        consoleLogger.Log(flexibleRoller);
 
-        ClosedDiceRoller cdr = new ClosedDiceRoller(6,6);
-        cdr.RollAllDice();
-        fileLogger.Log(cdr);
+        ClosedDiceRoller closedRoller = new ClosedDiceRoller(6,6);
+        closedRoller.RollAllDice();
+        fileLogger.Log(closedRoller);
     }
 
     static void OutputSeparationLine() {

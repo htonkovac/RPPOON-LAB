@@ -9,13 +9,13 @@ Izmijeniti klasu Die tako da joj se preko konstruktora predaje generator pseudo-
 class MainClass {
     static void Main() {
         int NUMBER_OF_DICE = 20;
-        DiceRoller dr = new DiceRoller();
+        DiceRoller roller = new DiceRoller();
          Random randomGenerator = new Random();
         for (int i =0; i < NUMBER_OF_DICE; i++) {
-            dr.InsertDie(new Die(6, randomGenerator));
+            roller.InsertDie(new Die(6, randomGenerator));
         }
-        dr.RollAllDice();
-        IList<int> rollResults = dr.GetRollingResults();
+        roller.RollAllDice();
+        IList<int> rollResults = roller.GetRollingResults();
         foreach (int rollResult in rollResults) {
             System.Console.WriteLine(rollResult);   
         }
