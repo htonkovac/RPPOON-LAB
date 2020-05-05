@@ -1,4 +1,4 @@
 #!/bin/bash
-rm main.exe && \
+rm main.exe
 mcs src/* -out:main.exe && \
 mono main.exe
