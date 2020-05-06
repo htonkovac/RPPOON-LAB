@@ -25,7 +25,7 @@ class MainClass
         OutputSeparationLine();
         ReminderNote myNote = new ReminderNote("My note", lightTheme);
 
-        notebook.AddNote(magicNote);
+        notebook.AddNote(myNote);
 
         notebook.Display();
         OutputSeparationLine();
@@ -36,6 +36,6 @@ class MainClass
     }
     static void OutputSeparationLine()
     {
-        System.Console.WriteLine("----------------------");
+        System.Console.WriteLine("----------------------------------------------");
     }
 }
