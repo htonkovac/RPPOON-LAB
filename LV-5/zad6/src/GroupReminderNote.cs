@@ -24,7 +24,8 @@ namespace LV5
         {
             this.ChangeColor();
             Console.WriteLine("REMINDER: ");
-            Console.WriteLine("For people:" + this.people.Select(x => x).ToList().ToString())
+            Console.WriteLine("For people:");
+            this.people.ForEach(person => Console.WriteLine(person));
 
             string framedMessage = this.GetFramedMessage();
             Console.WriteLine(framedMessage);

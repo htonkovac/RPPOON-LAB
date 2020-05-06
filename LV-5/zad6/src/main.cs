@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using LV5;
 
 
-class MainClass {
-    static void Main() {
+class MainClass
+{
+    static void Main()
+    {
         LightTheme lightTheme = new LightTheme();
-        ReminderNote lightReminderNote = new ReminderNote("Moja svijetla poruka",lightTheme);
-        lightReminderNote.Show();
-
         DarkTheme darkTheme = new DarkTheme();
-        ReminderNote darkReminderNote = new ReminderNote("Moja tamna poruka",darkTheme);
-        darkReminderNote.Show();
-    
+
+
+        GroupReminderNote groupReminderNote = new GroupReminderNote("Group message", lightTheme);
+        groupReminderNote.AddPerson("Mark");
+        groupReminderNote.AddPerson("John");
+        groupReminderNote.AddPerson("Jane");
+
+        groupReminderNote.Show();
+
+        groupReminderNote.Theme = darkTheme;
+        groupReminderNote.RemovePerson("John");
+        groupReminderNote.Show();
+
     }
-    static void OutputSeparationLine() {
+    static void OutputSeparationLine()
+    {
         System.Console.WriteLine("----------------------");
     }
 }
