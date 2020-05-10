@@ -8,11 +8,12 @@ class MainClass
     static void Main()
     {
         AbstractLogger logger = new ConsoleLogger(MessageType.ALL);
-        FileLogger fileLogger =
-        new FileLogger(MessageType.ERROR | MessageType.WARNING, "logFile.txt");
+        FileLogger fileLogger = new FileLogger(MessageType.ERROR | MessageType.WARNING, "logFile.txt");
+        logger.SetNextLogger(fileLogger);
+
 
         logger.Log("Console logging", MessageType.INFO);
-        fileLogger.Log("File logging", MessageType.ERROR);
+        logger.Log("File logging", MessageType.ERROR);
     }
     static void OutputLineSeparator()
     {
