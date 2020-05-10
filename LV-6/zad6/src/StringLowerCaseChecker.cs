@@ -8,7 +8,7 @@ namespace LV6
 {
     class StringLowerCaseChecker : StringChecker
     {
-        protected bool PerformCheck(string stringToCheck) {
+        protected override bool PerformCheck(string stringToCheck) {          
             return stringToCheck.Any(char.IsLower);
         }
     }
