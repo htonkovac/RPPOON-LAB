@@ -17,7 +17,7 @@ namespace LV6
         protected override void WriteMessage(string message, MessageType type)
         {
             String log = $"{DateTime.Now} : {type} : {message}";
-            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(this.filePath)) {
+            using (System.IO.StreamWriter writer = new System.IO.StreamWriter(this.filePath, true)) {
                 writer.WriteLine(log);
             }
         }

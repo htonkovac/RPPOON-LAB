@@ -14,6 +14,14 @@ namespace LV6
         {
             this.next = next;
         }
+        public void SetNextForLastInChain(StringChecker next) {
+            var last = this;
+            while (last.next != null) {
+                last = last.next;
+            }
+            last.SetNext(next);
+        }
+        
         public bool Check(string stringToCheck)
         {
             bool result = this.PerformCheck(stringToCheck);

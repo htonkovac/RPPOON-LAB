@@ -12,8 +12,9 @@ class MainClass
         logger.SetNextLogger(fileLogger);
 
 
-        logger.Log("Console logging", MessageType.INFO);
-        logger.Log("File logging", MessageType.ERROR);
+        logger.Log("Log logging level 1", MessageType.INFO);
+        logger.Log("Log logging level 2", MessageType.WARNING);
+        logger.Log("Log logging level 3", MessageType.ERROR);
     }
     static void OutputLineSeparator()
     {

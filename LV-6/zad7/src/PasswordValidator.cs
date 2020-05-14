@@ -10,20 +10,14 @@ namespace LV6
     {
         StringChecker stringChecker;
 
-        public PasswordValidator()
+        public PasswordValidator(StringChecker stringChecker)
         {
-            var upperCaseChecker = new StringUpperCaseChecker();
-            var lowerCaseChecker = new StringLowerCaseChecker();
-            var digitChecker = new StringDigitChecker();
-            var stringLenghtChecker = new StringLenghtChecker();
-
-            stringLenghtChecker.SetNext(upperCaseChecker);
-            upperCaseChecker.SetNext(lowerCaseChecker);
-            lowerCaseChecker.SetNext(digitChecker);
-
-            this.stringChecker = stringLenghtChecker;
+            this.stringChecker = stringChecker;
         }
 
+        public void AddStringChecker(StringChecker newStringChecker) {
+            this.stringChecker.SetNextForLastInChain(newStringChecker);
+        }
         public bool ValidatePassword(String password)
         {
             return stringChecker.Check(password);

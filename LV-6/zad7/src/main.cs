@@ -7,7 +7,17 @@ class MainClass
 {
     static void Main()
     {
-        PasswordValidator validator = new PasswordValidator();
+            var upperCaseChecker = new StringUpperCaseChecker();
+            var lowerCaseChecker = new StringLowerCaseChecker();
+            var digitChecker = new StringDigitChecker();
+            var stringLenghtChecker = new StringLenghtChecker();
+            
+        PasswordValidator validator = new PasswordValidator(stringLenghtChecker);
+        validator.AddStringChecker(lowerCaseChecker);
+        validator.AddStringChecker(digitChecker);
+        validator.AddStringChecker(upperCaseChecker);
+
+        
         System.Console.WriteLine(validator.ValidatePassword("1"));
         System.Console.WriteLine(validator.ValidatePassword(""));
         System.Console.WriteLine(validator.ValidatePassword("1dD"));
