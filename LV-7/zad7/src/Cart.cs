@@ -17,23 +17,11 @@ namespace LV7
         {
             return this.items.Sum(item =>
             {
-                if (item is Book)
-                {
-                    return visitor.Visit((Book)item);
-                }
-
-                if (item is DVD)
-                {
-                    double result = visitor.Visit((DVD)item);
-                    if (!Double.IsNaN(result))
-                        return result;
-                }
-
-                if (item is VHS)
-                {
-                    return visitor.Visit((VHS)item);
-                }
-                return 0;
+                var val = item.Accept(visitor);
+                if (double.IsNaN(val)) {
+                    return 0;
+                } 
+                return val;
             });
         }
 
